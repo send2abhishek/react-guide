@@ -1,22 +1,26 @@
-import React from "react";
-import "./App.css";
+import React, { useState } from "react";
 import Person from "./components/persons";
-import Counter from "./components/counte";
 
-function App() {
+// hooks
+
+const App = () => {
+  const [state, stateFunction] = useState({
+    name: "Abhishek",
+    data: "Demo"
+  });
+
+  const handleClick = () => {
+    stateFunction({
+      name: "ALura"
+    });
+  };
   return (
-    <div className="App">
-      <h1>I am React App</h1>
-      <Person name="Abhishek Aryan" age="26" />
-      <Person name="Laur ka baal" age="39">
-        Hobbies
-      </Person>
-      <Person />
-      <Counter name="Laure ka baal" />
+    <div>
+      <button onClick={handleClick}>CLick Me</button>
+      <Person name={state.name} />
+      <p>Name is {state.name}</p>
     </div>
   );
-
-  // return React.createElement("h1", null, "I am a react App");
-}
+};
 
 export default App;

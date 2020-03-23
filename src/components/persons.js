@@ -1,13 +1,15 @@
-import React from "react";
+import React, { Component } from "react";
 
-const person = props => {
-  console.log("props received ", props);
-  return (
-    <p>
-      I am person component with {props.name} have {props.age} years old{" "}
-      {props.children}
-    </p>
-  );
-};
+class Person extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      personName: this.props.name
+    };
+  }
+  render() {
+    return <p>Person name is {this.state.personName}</p>;
+  }
+}
 
-export default person;
+export default Person;
