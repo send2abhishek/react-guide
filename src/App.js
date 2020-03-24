@@ -11,13 +11,26 @@ const App = () => {
 
   const handleClick = () => {
     stateFunction({
-      name: "ALura"
+      name: "ALura",
+      data: state.data
+    });
+  };
+  console.log("state is", state);
+
+  const propsHandler = () => {
+    console.log("Clicked");
+  };
+  const changeHandler = e => {
+    stateFunction({
+      name: e.target.value,
+      data: state.data
     });
   };
   return (
     <div>
       <button onClick={handleClick}>CLick Me</button>
-      <Person name={state.name} />
+      <Person name={state.name} clicked={propsHandler} />
+      <Person name={state.name} changed={changeHandler} />
       <p>Name is {state.name}</p>
     </div>
   );

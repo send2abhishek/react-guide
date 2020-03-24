@@ -1,15 +1,23 @@
 import React, { Component } from "react";
 
-class Person extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      personName: this.props.name
-    };
-  }
-  render() {
-    return <p>Person name is {this.state.personName}</p>;
-  }
-}
+const Person = props => {
+  const styles = {
+    padding: "10px"
+  };
+  return (
+    <div style={styles}>
+      <p>
+        Name of the person is {props.name} having age {props.age}
+      </p>
+      <input type="text" onChange={props.changed} value={props.name} />
+      <button
+        onClick={() => props.clicked(props.id)}
+        className="btn btn-danger btn-sm m-2"
+      >
+        Delete
+      </button>
+    </div>
+  );
+};
 
 export default Person;
