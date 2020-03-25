@@ -1,11 +1,14 @@
 import React, { Component } from "react";
-
+import "../App.css";
 const Person = props => {
-  const styles = {
-    padding: "10px"
-  };
+  // const styles = {
+  //   width: "60%",
+  //   border: "1px solid grey",
+  //   boxshadow: "2px ",
+  //   text-align:"center"
+  // };
   return (
-    <div style={styles}>
+    <div className="Persons">
       <p>
         Name of the person is {props.name} having age {props.age}
       </p>

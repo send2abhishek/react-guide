@@ -10,18 +10,30 @@ class Counters extends Component {
         { id: 2, value: 2 },
         { id: 3, value: 3 },
         { id: 4, value: 4 }
-      ]
+      ],
+      demo: "laure ka baal"
     };
   }
   render() {
     return (
       <div>
         {this.state.listCOunter.map(data => (
-          <Counter key={data.id} data={data} onDelete={this.handleDelete} />
+          <Counter
+            key={data.id}
+            data={data}
+            onDelete={this.handleDelete}
+            name={this.state.demo}
+          />
         ))}
+        <button onClick={this.temp}>Click</button>
       </div>
     );
   }
+  temp = () => {
+    this.setState({
+      demo: "chut ka baal"
+    });
+  };
 
   handleDelete = id => {
     const counters = this.state.listCOunter.filter(c => c.id !== id);

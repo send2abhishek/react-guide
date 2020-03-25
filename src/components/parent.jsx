@@ -61,11 +61,17 @@ class Parent extends Component {
       </div>
     ) : null;
   };
+
+  handleColor = () => {
+    return !this.state.show ? "btn btn-info btn-sm" : "btn btn-sm btn-danger";
+  };
   render() {
+    let classes = ["red", "green", "laura"].join("-");
+    console.log(classes);
     return (
       <div className="App">
         <h1>I am a React App</h1>
-        <button className="btn btn-info btn-sm" onClick={this.clickHandler}>
+        <button className={this.handleColor()} onClick={this.clickHandler}>
           Tooggle Persons
         </button>
         {this.listRender()}
