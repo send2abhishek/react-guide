@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../App.css";
+import Aux from "./Auxiliary";
 const Person = props => {
   // const styles = {
   //   width: "60%",
@@ -8,18 +9,21 @@ const Person = props => {
   //   text-align:"center"
   // };
   return (
-    <div className="Persons">
-      <p>
-        Name of the person is {props.name} having age {props.age}
-      </p>
-      <input type="text" onChange={props.changed} value={props.name} />
-      <button
-        onClick={() => props.clicked(props.id)}
-        className="btn btn-danger btn-sm m-2"
-      >
-        Delete
-      </button>
-    </div>
+    <Aux>
+      <div className="Persons">
+        <p>
+          Name of the person is {props.name} having age {props.age}
+        </p>
+        <input type="text" onChange={props.changed} value={props.name} />
+        <button
+          onClick={() => props.clicked(props.id)}
+          className="btn btn-danger btn-sm m-2"
+        >
+          Delete
+        </button>
+      </div>
+      <p>Baccha hai tu</p>
+    </Aux>
   );
 };
 
