@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useEffect, useRef } from "react";
 import styles from "../App.css";
 import Aux from "./Auxiliary";
 import withClass from "./withClass";
@@ -9,14 +9,25 @@ const Person = props => {
   //   boxshadow: "2px ",
   //   text-align:"center"
   // };
-  let classes = "Persons";
+  const inputTypeRef = useRef(null);
+
+  useEffect(() => {
+    //document.querySelector("input").focus();
+    inputTypeRef.current.focus();
+  }, []);
+
   console.log("prps", props);
   return (
     <Aux>
       <p>
         Named of the person is {props.name} having age {props.age}
       </p>
-      <input type="text" onChange={props.changed} value={props.name} />
+      <input
+        type="text"
+        onChange={props.changed}
+        ref={inputTypeRef}
+        value={props.name}
+      />
       <button
         onClick={() => props.clicked(props.id)}
         className="btn btn-danger btn-sm m-2"
@@ -30,4 +41,6 @@ const Person = props => {
 };
 
 // calling withClass function which returns jsx
-export default withClass(Person);
+export default withClass(Person, styles.Persons);
+
+//export default Person;
