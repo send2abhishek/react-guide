@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import "../App.css";
+import styles from "../App.css";
 import Aux from "./Auxiliary";
+import withClass from "./withClass";
 const Person = props => {
   // const styles = {
   //   width: "60%",
@@ -8,23 +9,25 @@ const Person = props => {
   //   boxshadow: "2px ",
   //   text-align:"center"
   // };
+  let classes = "Persons";
+  console.log("prps", props);
   return (
     <Aux>
-      <div className="Persons">
-        <p>
-          Name of the person is {props.name} having age {props.age}
-        </p>
-        <input type="text" onChange={props.changed} value={props.name} />
-        <button
-          onClick={() => props.clicked(props.id)}
-          className="btn btn-danger btn-sm m-2"
-        >
-          Delete
-        </button>
-      </div>
+      <p>
+        Named of the person is {props.name} having age {props.age}
+      </p>
+      <input type="text" onChange={props.changed} value={props.name} />
+      <button
+        onClick={() => props.clicked(props.id)}
+        className="btn btn-danger btn-sm m-2"
+      >
+        Delete
+      </button>
+
       <p>Baccha hai tu</p>
     </Aux>
   );
 };
 
-export default Person;
+// calling withClass function which returns jsx
+export default withClass(Person);
